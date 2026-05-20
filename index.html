@@ -29,7 +29,6 @@
   <main class="page-shell">
     <div class="form-container">
       
-      <!-- หน้าจอเมื่อทำรายการสำเร็จอัตโนมัติ -->
       <div id="successOverlay">
         <div style="font-size: 80px;" class="mb-2">✅</div>
         <h2 class="text-success fw-bold mb-1">ลงทะเบียนสำเร็จ!</h2>
@@ -44,24 +43,29 @@
       <div class="header">
         <img src="https://knfhgytkfshdmfdieczx.supabase.co/storage/v1/object/public/pic/OXYFIGHT_CENTER.png" alt="OXFIGHT CENTER LOGO">
         <h4 class="mt-3 fw-bold text-primary">Online Registration System</h4>
-        <p class="text-muted small">กรุณากรอกข้อมูลส่วนบุคคลเป็นภาษาอังกฤษเพื่อใช้ในการออกวุฒิบัตรสากล</p>
+        <p class="text-muted small">กรุณากรอกข้อมูลส่วนบุคคลให้ครบถ้วนเพื่อใช้ในการออกวุฒิบัตร</p>
       </div>
 
       <form id="regForm" onkeydown="return event.key != 'Enter';">
         <div class="row">
           <div class="col-md-4 mb-3">
-            <label class="form-label">Prefix (คำนำหน้า)</label>
+            <label class="form-label">คำนำหน้า (Prefix)</label>
             <select class="form-select" id="inp_prefix" required>
-              <option value="">Select...</option>
-              <option value="Mr.">Mr.</option>
-              <option value="Mrs.">Mrs.</option>
-              <option value="Ms.">Ms.</option>
+              <option value="">เลือก...</option>
+              <option value="Mr.">Mr. (นาย)</option>
+              <option value="Mrs.">Mrs. (นาง)</option>
+              <option value="Ms.">Ms. (นางสาว)</option>
             </select>
           </div>
           <div class="col-md-8 mb-3">
-            <label class="form-label">Full Name (ภาษาอังกฤษ ตัวพิมพ์ใหญ่)</label>
-            <input type="text" class="form-control" id="inp_name" required placeholder="FIRSTNAME LASTNAME" pattern="[A-Za-z\s]+">
+            <label class="form-label">ชื่อ-นามสกุล (ภาษาไทย)</label>
+            <input type="text" class="form-control" id="inp_name_th" required placeholder="สมชาย ใจดี">
           </div>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Full Name (ภาษาอังกฤษ ตัวพิมพ์ใหญ่) <span class="text-danger small">*สำหรับใบประกาศ</span></label>
+          <input type="text" class="form-control" id="inp_name_en" required placeholder="SOMCHAI JAIDEE" pattern="[A-Za-z\s]+">
         </div>
         
         <div class="mb-3">
@@ -92,7 +96,6 @@
     </div>
   </main>
 
-  <!-- Modal ตรวจสอบข้อมูล ควบคู่การยินยอม PDPA & Privacy Notice -->
   <div class="modal fade" id="confirmModal" tabindex="-1" data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content" style="border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
@@ -102,26 +105,22 @@
         </div>
         
         <div class="modal-body p-4" style="max-height: 70vh; overflow-y: auto;">
-          <!-- ส่วนที่ 1: ตรวจสอบข้อมูลความถูกต้อง -->
           <h6 class="fw-bold text-primary mb-3"><i class="fas fa-user me-1"></i> 1. ตรวจสอบข้อมูลการสมัครของท่าน</h6>
           <div id="confirmData" class="mb-4"></div>
           
           <hr class="my-4">
 
-          <!-- ส่วนที่ 2: ข้อความทางกฎหมาย PDPA Privacy Notice -->
           <h6 class="fw-bold text-primary mb-2"><i class="fas fa-shield-alt me-1"></i> 2. นโยบายคุ้มครองข้อมูลส่วนบุคคล (Privacy Notice)</h6>
           <div class="p-3 bg-light rounded-3 mb-3 small text-muted border" style="max-height: 180px; overflow-y: auto; line-height: 1.6;">
             <p class="fw-bold text-dark mb-1">ศูนย์ฝึกอบรม OXFIGHT CENTER ขอแจ้งรายละเอียดการประมวลผลข้อมูลส่วนบุคคลให้ท่านทราบดังนี้:</p>
-            <p><b>วัตถุประสงค์การจัดเก็บ:</b> เรามีความจำเป็นต้องจัดเก็บและใช้ข้อมูลส่วนบุคคลของท่าน (คำนำหน้าชื่อ, ชื่อ-นามสกุลภาษาอังกฤษ, เบอร์โทรศัพท์ และอีเมล) เพื่อวัตถุประสงค์ในการตรวจสอบสิทธิ์ ดำเนินการจัดทำระบบคิวงาน ออกวุฒิบัตรดิจิทัล (E-Certificate) และส่งมอบข้อมูลคิวอาร์โค้ดผ่านทางอีเมลเพื่อใช้รายงานตัวเข้างานจริงตามฐานสัญญา</p>
+            <p><b>วัตถุประสงค์การจัดเก็บ:</b> เรามีความจำเป็นต้องจัดเก็บและใช้ข้อมูลส่วนบุคคลของท่าน (คำนำหน้าชื่อ, ชื่อ-นามสกุลภาษาไทยและภาษาอังกฤษ, เบอร์โทรศัพท์ และอีเมล) เพื่อวัตถุประสงค์ในการตรวจสอบสิทธิ์ ดำเนินการจัดทำระบบคิวงาน ออกวุฒิบัตรดิจิทัล (E-Certificate) และส่งมอบข้อมูลคิวอาร์โค้ดผ่านทางอีเมลเพื่อใช้รายงานตัวเข้างานจริงตามฐานสัญญา</p>
             <p><b>⚠️ การบันทึกภาพและวิดีโอ:</b> ในระหว่างการจัดการฝึกอบรมวิชาปฏิบัติการจริง จะมีการบันทึกภาพนิ่ง ภาพเคลื่อนไหว และวิดีโอของผู้เข้ารับการอบรม โดยมีวัตถุประสงค์เพื่อใช้ในการทำสื่อประชาสัมพันธ์ สรุปกิจกรรม สื่อการเรียนการสอน และโฆษณาเผยแพร่ผ่านช่องทางออนไลน์/โซเชียลมีเดียหลักของศูนย์ฝึก</p>
             <p><b>ระยะเวลาการจัดเก็บ:</b> ศูนย์ฝึกจะทำการจัดเก็บข้อมูลทั่วไปของท่านไว้ในระบบปลอดภัยเป็นระยะเวลา 3 ปี เพื่อประโยชน์ในการตรวจสอบสิทธิ์ย้อนหลัง สำหรับภาพถ่ายและวิดีโอเพื่อการประชาสัมพันธ์จะจัดเก็บไว้ตลอดระยะเวลาการดำเนินงานของศูนย์ฝึก เว้นแต่มีการแจ้งเพิกถอนความยินยอม</p>
             <p><b>สิทธิ์ของเจ้าของข้อมูล:</b> ท่านมีสิทธิ์ในการขอเข้าถึง ขอแก้ไข หรือขอให้ลบข้อมูลส่วนบุคคล รวมถึงสามารถแจ้งลบภาพถ่าย/วิดีโอที่มีใบหน้าของท่านออกจากสื่อประชาสัมพันธ์ของศูนย์ฝึกได้ทุกเมื่อ โดยติดต่อเจ้าหน้าที่ควบคุมข้อมูลของระบบ</p>
           </div>
 
-          <!-- ส่วนที่ 3: บล็อกกล่องติ๊กเลือกให้ความยินยอม (เรียงลำดับดักช่องโหว่ทางกฎหมาย) -->
           <div class="p-3 rounded-3" style="background-color: #f8fafc; border: 1px solid #e2e8f0;">
             
-            <!-- บล็อกที่ 1: ติ๊กเลือกอย่างอิสระ (เรื่องภาพถ่าย/วิดีโอประชาสัมพันธ์ - ขึ้นก่อนเพื่อเน้นย้ำความชัดเจน) -->
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" id="chk_marketing_consent">
               <label class="form-check-label small fw-bold text-primary" for="chk_marketing_consent" style="cursor: pointer;">
@@ -134,7 +133,6 @@
 
             <hr class="my-2" style="border-top: 1px dashed #cbd5e1;">
 
-            <!-- บล็อกที่ 2: บล็อกบังคับติ๊ก (ฐานสัญญาเพื่อดำเนินการจัดฝึกอบรมและออกใบประกาศ) -->
             <div class="form-check mt-3">
               <input class="form-check-input" type="checkbox" id="chk_required_notice" onchange="validateConsentState()">
               <label class="form-check-label small fw-bold text-dark" for="chk_required_notice" style="cursor: pointer;">
@@ -201,15 +199,16 @@
     function showConfirm() {
       const form = document.getElementById('regForm');
       const emailInput = document.getElementById('inp_email');
-      const nameInput = document.getElementById('inp_name');
+      const nameTHInput = document.getElementById('inp_name_th');
+      const nameENInput = document.getElementById('inp_name_en');
       
       emailInput.value = emailInput.value.trim();
-      nameInput.value = nameInput.value.trim().toUpperCase(); // จัดระเบียบให้อังกฤษตัวพิมพ์ใหญ่ล้วนเพื่อใบประกาศ
+      nameTHInput.value = nameTHInput.value.trim();
+      nameENInput.value = nameENInput.value.trim().toUpperCase(); // จัดระเบียบให้อังกฤษตัวพิมพ์ใหญ่ล้วนเพื่อใบประกาศ
       
       if(!form.checkValidity()) { form.reportValidity(); return; }
 
       const prefix = document.getElementById('inp_prefix').value;
-      const name = nameInput.value;
       const selectedSession = loadedSessions.find(s => s.id == document.getElementById('date').value);
 
       // รีเซ็ตล้างกล่องติ๊ก PDPA ทุกครั้งก่อนเปิด Modal เพื่อความปลอดภัยสูงสุด
@@ -219,7 +218,8 @@
 
       document.getElementById('confirmData').innerHTML = `
         <div class="p-3 bg-white border rounded-3 shadow-sm">
-          <p class="mb-2"><span class="confirm-label text-muted small">Name:</span> <b class="text-dark fs-5">${prefix} ${name}</b></p>
+          <p class="mb-2"><span class="confirm-label text-muted small">Name (TH):</span> <b class="text-dark fs-5">${prefix} ${nameTHInput.value}</b></p>
+          <p class="mb-2"><span class="confirm-label text-muted small">Name (EN):</span> <b class="text-dark fs-6">${prefix} ${nameENInput.value}</b></p>
           <p class="mb-2"><span class="confirm-label text-muted small">Phone Number:</span> <b class="text-dark">${document.getElementById('inp_phone').value}</b></p>
           <p class="mb-0"><span class="confirm-label text-muted small">Email Address:</span> <b class="text-dark">${emailInput.value}</b></p>
         </div>
@@ -244,7 +244,8 @@
       btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Processing...';
 
       const prefix = document.getElementById('inp_prefix').value;
-      const fullName = document.getElementById('inp_name').value;
+      const fullNameTH = document.getElementById('inp_name_th').value;
+      const fullNameEN = document.getElementById('inp_name_en').value;
       const phone = document.getElementById('inp_phone').value;
       const email = document.getElementById('inp_email').value;
       const sessionId = document.getElementById('date').value;
@@ -258,12 +259,13 @@
         if (checkError) throw checkError;
         if (currentSession.available_seats <= 0) throw new Error("ขออภัยด้วยครับ รอบการอบรมหลักสูตรนี้ที่นั่งเต็มแล้ว ณ จังหวะที่คุณกดยืนยัน");
 
-        // ด่านที่ 2: INSERT บันทึกข้อมูลเข้าตารางหลักของ Supabase พ่วงฟิลด์ photo_consent แนบเป็นหลักฐานทางกฎหมาย
+        // ด่านที่ 2: INSERT บันทึกข้อมูลเข้าตารางหลักของ Supabase (ใช้ฟิลด์ TH / EN แยกกัน)
         const { data: insertedData, error: insertError } = await supabaseClient
           .from('registrations')
           .insert([{ 
             prefix: prefix, 
-            full_name: fullName, 
+            full_name_th: fullNameTH, 
+            full_name_en: fullNameEN, 
             phone: phone, 
             email: email, 
             session_id: parseInt(sessionId),
@@ -278,7 +280,7 @@
         // ด่านที่ 3: สั่งหักลดจำนวนที่นั่งว่างของรอบนั้นในระบบลง 1 ที่นั่ง
         await supabaseClient.from('sessions').update({ available_seats: currentSession.available_seats - 1 }).eq('id', sessionId);
 
-        // ด่านที่ 4: ยิงข้อมูลแบบข้ามคลาวด์ขนานไปหา GAS API เพื่อคัดแยกรายชื่อลงแผ่นงานและสั่งส่งจดหมายกล่องหรูหรา
+        // ด่านที่ 4: ยิงข้อมูลแบบข้ามคลาวด์ขนานไปหา GAS API
         const fullSessionString = `${currentSession.name} (${currentSession.date})`;
         
         fetch(GOOGLE_SHEET_API, {
@@ -288,7 +290,8 @@
             "action": "registerOnline", 
             "id": generatedRegId, 
             "prefix": prefix, 
-            "fullName": fullName, 
+            "fullNameTH": fullNameTH,
+            "fullNameEN": fullNameEN,
             "phone": phone, 
             "email": email, 
             "sessionName": fullSessionString,
