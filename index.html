@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แบบประเมินผลการฝึกอบรม</title>
+  <title>แบบประเมินผลการฝึกอบรม - STOP THE BLEED</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts (Sarabun) -->
@@ -15,10 +15,17 @@
 <body class="bg-slate-50 min-h-screen pb-12">
 
   <div class="max-w-3xl mx-auto px-4 mt-8">
-    <!-- Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 md:p-8 text-white shadow-lg mb-6">
-      <h1 class="text-2xl md:text-3xl font-bold mb-2">แบบประเมินผลการฝึกอบรม</h1>
-      <p class="text-blue-100 text-sm md:text-base">โปรดสละเวลาสักครู่เพื่อประเมินความพึงพอใจ เพื่อนำข้อมูลไปปรับปรุงในหลักสูตรถัดไป</p>
+    <!-- Header: ปรับเป็นสีแดงและเพิ่มโลโก้ STOP THE BLEED -->
+    <div class="bg-gradient-to-r from-red-600 to-red-800 rounded-2xl p-6 md:p-8 text-white shadow-lg mb-6 flex flex-col md:flex-row items-center gap-6">
+      <div class="bg-white p-3 rounded-xl shadow-inner max-w-[140px] shrink-0">
+        <!-- Official Logo Web-Link Reference -->
+        <img src="https://www.stopthebleed.org/wp-content/uploads/2023/10/STB-Header-Logo.png" alt="STOP THE BLEED® Logo" class="w-full h-auto object-contain">
+      </div>
+      <div class="text-center md:text-left">
+        <h1 class="text-2xl md:text-3xl font-bold mb-2 tracking-wide">แบบประเมินผลการฝึกอบรม</h1>
+        <p class="text-red-100 text-sm md:text-base">หลักสูตรการหยุดเลือดในภาวะฉุกเฉิน (STOP THE BLEED®)</p>
+        <p class="text-red-200/80 text-xs mt-1">โปรดสละเวลาประเมินความพึงพอใจเพื่อพัฒนาคุณภาพการเรียนการสอน</p>
+      </div>
     </div>
 
     <!-- Form -->
@@ -27,14 +34,14 @@
       <!-- ส่วนที่ 1: ข้อมูลทั่วไป -->
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-4">
         <h2 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">1</span>
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold">1</span>
           ข้อมูลทั่วไปของผู้ประเมิน
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-1">เพศ</label>
-            <select name="gender" required class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <select name="gender" required class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-red-500 focus:outline-none">
               <option value="">-- เลือกเพศ --</option>
               <option value="ชาย">ชาย</option>
               <option value="หญิง">หญิง</option>
@@ -43,7 +50,7 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-1">อายุ (ปี)</label>
-            <input type="number" name="age" required class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <input type="number" name="age" required class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-red-500 focus:outline-none">
           </div>
         </div>
       </div>
@@ -51,14 +58,14 @@
       <!-- ส่วนที่ 2: เกณฑ์การประเมิน -->
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-6">
         <h2 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">2</span>
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold">2</span>
           ระดับความพึงพอใจ
         </h2>
         <p class="text-xs text-slate-500 -mt-4">เกณฑ์คะแนน: 5 = ดีมาก, 4 = ดี, 3 = ปานกลาง, 2 = พอใช้, 1 = ปรับปรุง</p>
 
         <!-- หัวข้อประเมินเนื้อหา -->
         <div>
-          <h3 class="font-semibold text-blue-600 text-sm mb-3">ด้านเนื้อหาหลักสูตร</h3>
+          <h3 class="font-semibold text-red-600 text-sm mb-3">ด้านเนื้อหาหลักสูตร</h3>
           <div class="space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl hover:bg-slate-50 gap-2">
               <span class="text-sm text-slate-700">1. เนื้อหามีความสอดคล้องกับวัตถุประสงค์</span>
@@ -77,7 +84,7 @@
 
         <!-- หัวข้อประเมินวิทยากร -->
         <div class="border-t pt-4">
-          <h3 class="font-semibold text-blue-600 text-sm mb-3">ด้านวิทยากร</h3>
+          <h3 class="font-semibold text-red-600 text-sm mb-3">ด้านวิทยากร</h3>
           <div class="space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl hover:bg-slate-50 gap-2">
               <span class="text-sm text-slate-700">4. วิทยากรมีความเชี่ยวชาญและถ่ายทอดได้ชัดเจน</span>
@@ -92,7 +99,7 @@
 
         <!-- หัวข้อประเมินสถานที่/เวลา และระบบจัดการ -->
         <div class="border-t pt-4">
-          <h3 class="font-semibold text-blue-600 text-sm mb-3">ด้านสถานที่ สื่อ เวลา และการจัดการ</h3>
+          <h3 class="font-semibold text-red-600 text-sm mb-3">ด้านสถานที่ สื่อ เวลา และการจัดการ</h3>
           <div class="space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl hover:bg-slate-50 gap-2">
               <span class="text-sm text-slate-700">6. ความพร้อมของระบบ สื่อ และอุปกรณ์ในการอบรม</span>
@@ -113,27 +120,26 @@
       <!-- ส่วนที่ 3: ข้อเสนอแนะ -->
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-4">
         <h2 class="text-lg font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold">3</span>
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold">3</span>
           ข้อเสนอแนะเพิ่มเติม
         </h2>
-        <textarea name="suggestion" rows="3" placeholder="พิมพ์ข้อเสนอแนะของคุณที่นี่..." class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+        <textarea name="suggestion" rows="3" placeholder="พิมพ์ข้อเสนอแนะของคุณที่นี่..." class="w-full rounded-lg border-slate-200 p-2.5 text-sm bg-slate-50 border focus:ring-2 focus:ring-red-500 focus:outline-none"></textarea>
       </div>
 
-      <!-- ปุ่มกดส่ง -->
-      <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium p-3 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition duration-150 flex items-center justify-center gap-2">
+      <!-- ปุ่มกดส่งสีแดง -->
+      <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-medium p-3 rounded-xl shadow-md hover:from-red-700 hover:to-red-800 transition duration-150 flex items-center justify-center gap-2">
         <span>ส่งแบบประเมิน</span>
       </button>
     </form>
   </div>
 
   <script>
-    // สร้างปุ่มเรตติ้งคะแนน 1-5 อัตโนมัติ
     const ratingContainers = document.querySelectorAll('[data-rating]');
     ratingContainers.forEach(container => {
       const name = container.getAttribute('data-rating');
       for (let i = 5; i >= 1; i--) {
         container.innerHTML += `
-          <label class="flex items-center justify-center w-10 h-10 border rounded-lg cursor-pointer bg-slate-50 border-slate-200 transition text-sm font-semibold text-slate-600 hover:bg-blue-50">
+          <label class="flex items-center justify-center w-10 h-10 border rounded-lg cursor-pointer bg-slate-50 border-slate-200 transition text-sm font-semibold text-slate-600 hover:bg-red-50">
             <input type="radio" name="${name}" value="${i}" required class="sr-only">
             ${i}
           </label>
@@ -144,15 +150,15 @@
       labels.forEach(label => {
         const input = label.querySelector('input');
         input.addEventListener('change', () => {
-          labels.forEach(l => l.classList.remove('bg-blue-600', 'text-white', 'border-blue-600'));
+          // เปลี่ยนสีตอนคลิกให้เป็นสีแดงสอดคล้องกันธีมเว็บ
+          labels.forEach(l => l.classList.remove('bg-red-600', 'text-white', 'border-red-600'));
           if (input.checked) {
-            label.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+            label.classList.add('bg-red-600', 'text-white', 'border-red-600');
           }
         });
       });
     });
 
-    // ส่วนการส่งข้อมูลฟอร์มด้วย GAS URL ของคุณ
     document.getElementById('evaluationForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const submitBtn = document.getElementById('submitBtn');
@@ -162,7 +168,6 @@
       const formData = new FormData(this);
       const data = Object.fromEntries(formData.entries());
 
-      // ระบุลิงก์ Web App ของคุณโดยตรง
       const webAppUrl = 'https://script.google.com/macros/s/AKfycbxAz21-76L6H-vDnHTluMVN53aU2EnU2xHTHOF850JVr4H-SiBvGmfId0GTnhFPHqGBNw/exec';
 
       fetch(webAppUrl, {
