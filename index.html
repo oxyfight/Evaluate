@@ -11,6 +11,14 @@
   <style>
     body { font-family: 'Sarabun', sans-serif; }
   </style>
+  
+  <script>
+    // ========================================================
+    // ⚙️ [CONFIG] ตัวแปรควบคุมการเปิด-ปิด ฟอร์ม (ตั้งค่าตรงนี้ได้เลย)
+    // true = เปิดรับข้อมูลปกติ / false = ปิดรับข้อมูลและแสดงข้อความแจ้งเตือน
+    // ========================================================
+    const isFormOpen = false; 
+  </script>
 </head>
 <body class="bg-slate-50 min-h-screen pb-12">
 
@@ -147,13 +155,7 @@
   </div>
 
   <script>
-    // ========================================================
-    // ⚙️ ตัวแปรควบคุมการเปิด-ปิด ฟอร์ม (ตั้งค่าตรงนี้ได้เลยครับ)
-    // true = เปิดรับข้อมูลปกติ / false = ปิดรับข้อมูลและแสดงข้อความแจ้งเตือน
-    // ========================================================
-    const isFormOpen = false; 
-
-    // ระบบสลับการแสดงผลหน้าจอ
+    // ระบบสลับการแสดงผลหน้าจอ (ดึงค่าจากตัวแปรด้านบนสุดมาทำงาน)
     document.addEventListener("DOMContentLoaded", () => {
       const formElement = document.getElementById("evaluationForm");
       const closedMessageElement = document.getElementById("closedMessage");
@@ -167,7 +169,7 @@
       }
     });
 
-    // โครงสร้างสร้างปุ่มเรตติ้งคะแนน 1-5 (ทำงานเฉพาะตอนที่ฟอร์มเปิด)
+    // โครงสร้างสร้างปุ่มเรตติ้งคะแนน 1-5
     const ratingContainers = document.querySelectorAll('[data-rating]');
     ratingContainers.forEach(container => {
       const name = container.getAttribute('data-rating');
